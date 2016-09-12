@@ -1,0 +1,60 @@
+def reverse_comp2(DNA):
+'''Computes a reverse complement without using for loops.'''
+
+
+# Try writing the comp and rev functions seperately.
+
+def comp2(DNA):
+    '''Complements elements in a string without for loops.'''
+    compDNA = ''
+    compDNA = DNA.replace('G', 'C')
+    compDNA = DNA.replace ('C', 'G')
+    compDNA = DNA.replace('A', 'T')
+    compDNA = DNA.replace('T', 'A')
+    return compDNA
+# What I hope I have done here is made a string called compDNA which is assigned as the output of the DNA.replace function which changes Gs to Cs. THe problem is that once my Gs are all Cs, they will be converted back to Gs by the function that is supposed to complement the original Cs.
+
+#How do I make my downstream operations independent/not counfounded by the things I did upstream? Can I do A>T and T>A quite separately and then bring them together? What if I do them at the same time? Using the AND operation?
+
+def comp3(DNA):
+    '''Complements elements in a string without for loops.'''
+    compDNA = ''
+    compDNA = DNA.replace('G', 'C' and 'C', 'G')
+    compDNA = DNA.replace('A', 'T' and 'T', 'A')
+    return compDNA
+
+#This does not work because the .replace method can only take 2 inputs at a time.
+
+def comp4(DNA):
+    '''Complements elements in a string without for loops.'''
+    compDNA = ''
+    compDNA = DNA.replace('G', 'g')
+    compDNA = DNA.replace('A', 'a')
+
+    compDNA = DNA.replace('C', 'G')
+    compDNA = DNA.replace('T', 'A')
+
+    compDNA = DNA.replace('g', 'C')
+    compDNA = DNA.replace('a', 'T')
+    return compDNA
+
+#a better way is to just make everything lower case.
+
+def comp7(DNA):
+    '''Complements elements in a string without for loops.'''
+    lowDNA = DNA.lower()
+    compDNA = lowDNA.replace('g', 'C')
+    compDNA2 = compDNA.replace('c', 'G')
+    compDNA3 = compDNA2.replace('t', 'A')
+    compDNA4 = compDNA3.replace('a', 'T')
+    return compDNA4
+
+def revcompB(DNA):
+    '''Reverse complements elements in a string without for loops.'''
+    revDNA = DNA[::-1]
+    lowDNA = revDNA.lower()
+    compDNA = lowDNA.replace('g', 'C')
+    compDNA2 = compDNA.replace('c', 'G')
+    compDNA3 = compDNA2.replace('t', 'A')
+    compDNA4 = compDNA3.replace('a', 'T')
+    return compDNA4

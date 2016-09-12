@@ -1,0 +1,20 @@
+seq = 'ATGCCGTGGCCAGAGAGCCTA'
+
+def revcomp(DNA):
+    '''Reverse complements elements in a string without for loops.'''
+    revDNA = DNA[::-1]
+    lowDNA = revDNA.lower()
+    compDNA = lowDNA.replace('g', 'C')
+    compDNA2 = compDNA.replace('c', 'G')
+    compDNA3 = compDNA2.replace('t', 'A')
+    compDNA4 = compDNA3.replace('a', 'T')
+    return compDNA4
+
+revcomp(seq)
+
+# according to Justin we do not need to keep assigning new strings...how to do this?
+
+def revcomp2(DNA):
+    '''Reverse complements elements in a string without for loops and without relisting.'''
+    revDNA = DNA[::-1]
+    lowDNA = revDNA.lower()
