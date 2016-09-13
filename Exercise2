@@ -1,0 +1,46 @@
+#exercise 2.3: detecting pathogenicity islands in sequence DATA.
+
+#Write a function that divides a sequence into blocks and computes the GC content for each block, returning a tuple.
+
+#2.3 Algorthimic strategy:
+
+#1. break into blocks
+    #make a new list that contains each block
+        #create for loop that iterates over each block
+#2. calculate GC for each block (by for looping through the list above)
+#3. print tuple such that (GC seq1, GC seq2, GCseqn)
+
+def gc_blocks(seq, block_size):
+    #function to break up sequence and create list of blocks. Note that atpresent this will only work for sequences with length that are multiples of 3.
+    blocklist = ''
+    #Refer to every nth base in your sequence, where stride n is block_size.
+    for base in range(0,len(seq),block_size):
+        blockstring = [0:block_size]
+    print(blockstring)
+
+
+def step2(seq, block_size):
+    for base in range(0,len(seq),block_size):
+        blockstring = seq[base:base+block_size]
+    print(blockstring)
+#didn't work
+
+def step2(seq, block_size):
+    block = []
+    for base in range(0,len(seq),block_size):
+        block.append(seq[base:base+block_size])
+    print(block)
+
+#Why did this work? Previously, you were not storing each
+#block string anywhere. You needed to create an empty list,
+# in which you put the first string, and to which you appended each subsequent string.
+
+def gc_blocks(seq, block_size):
+    blocklist = []
+    for base in range(0,len(seq),block_size):
+        blocklist.append(seq[base:base+block_size])
+    gc_content = []
+    for block in blocklist:
+        gc_content.append(((block.count('G')+block.count('C'))/block_size))
+    tuple(gc_content)
+    return(gc_content)
