@@ -44,3 +44,24 @@ def gc_blocks(seq, block_size):
         gc_content.append(((block.count('G')+block.count('C'))/block_size))
     tuple(gc_content)
     return(gc_content)
+
+#This works!
+
+#Now you need to make one that can handle strings of any length, not just those that are divisible by block_size to give integers (or rather, your function works, but you just want to be able to ignore straggling sequence).
+
+def gc_blocks(seq, block_size):
+    blocklist = []
+    for base in range(0,len(seq),block_size):
+        block = (seq[base:base+block_size])
+        if len(block) == block_size:
+            blocklist.append(seq[base:base+block_size])
+    print(blocklist)
+    gc_content = []
+    for block in blocklist:
+        gc_content.append(((block.count('G')+block.count('C'))/block_size))
+    tuple(gc_content)
+    return(gc_content)
+
+
+
+#
