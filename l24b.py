@@ -25,7 +25,3 @@ x_low, y_low = ecdf(xa_low)
 
 plt.plot(x_high, y_high, marker='.', linestyle='none', markersize=20)
 plt.plot(x_low, y_low, marker='.', linestyle='none', markersize=20, alpha=0.5)
-plt.xlabel('Cross-sectional area (um)')
-plt.ylabel('eCDF')
-plt.legend(('high food', 'low food'), loc = 'lower right')
-plt.show()
