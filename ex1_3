@@ -17,4 +17,9 @@ revcomp(seq)
 def revcomp2(DNA):
     '''Reverse complements elements in a string without for loops and without relisting.'''
     revDNA = DNA[::-1]
-    lowDNA = revDNA.lower()
+    compDNA = revDNA.lower()
+    compDNA = compDNA.replace('g', 'C')
+    compDNA = compDNA.replace('c', 'G')
+    compDNA = compDNA.replace('t', 'A')
+    compDNA = compDNA.replace('a', 'T')
+    return compDNA
