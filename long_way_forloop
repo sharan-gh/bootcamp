@@ -1,0 +1,3 @@
+for fnum in [;I','II','III','IV']:
+    f_imp = ft.loc[ft['ID']==fnum, ['impact force (mN)']]
+    print(np.mean(f_imp))
