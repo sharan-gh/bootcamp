@@ -30,6 +30,24 @@ q1a_x, q18a_y = ecdf(q18a_iptg)
 
 #plot ecdfs
 
-wt_plt = plt.semilogx(wt_x, wt_y, marker = '.', markersize = 13, linestyle = 'none')
-qm_plt = plt.semilogx(q18m, q18m_y , marker = '.', markersize = 13, linestyle = 'none')
-qa_plt = plt.semilogx(q18a, q18a_y , marker = '.', markersize = 13,  linestyle = 'none')
+plt.semilogx(wt_x, wt_y, marker = '.', markersize = 13, linestyle = 'none')
+
+plt.semilogx(q18m, q18m_y , marker = '.', markersize = 13, linestyle = 'none')
+
+plt.semilogx(q18a, q18a_y , marker = '.', markersize = 13,  linestyle = 'none')
+
+#fold change computation
+
+def fold_change_for loop(c, RK, KdA=0.017, KdI=0.002, Kswitch=5.8):
+    clist = c.tolist()
+
+    for c in clist:
+        fc=[1+(((RK)*(1+c/Kda)**2))/((1+c/KdA)**2)+Kswitch*(1+c/KdI)**2]**-1
+        return fc
+        #shouldn't need a for loop!
+
+def fold_change_array(c, RK, KdA=0.017, KdI=0.002, Kswitch=5.8):
+    '''Computes theoretical fold change given IPTG concentration. Variable c should be entered as a numpy array of values.'''
+    
+    fc=[1+(((RK)*(1+c/Kda)**2))/((1+c/KdA)**2)+Kswitch*(1+c/KdI)**2]**-1
+    return fc
